@@ -242,7 +242,7 @@ def Pelotas():
 #Ventana principal
 ventana = tk.Tk()
 ventana.title('Tarea GUI')
-ventana.geometry("1100x700")
+ventana.geometry("1100x400")
 ventana.resizable(width=False, height=False)
 
 label = tk.Label(ventana, text= 'HOLA!, ESCOJA QUE QUIERE HACER: ', font=("Arial",20, "bold"), fg="black", bg="pink")
@@ -252,16 +252,16 @@ canva1 = tk.Canvas(ventana, bg="light blue", width=2100, height=2000)
 canva1.pack()
 #Botones ventna principal
 boton1 = tk.Button(ventana, text ='Pares ordenados', command=lambda:Numeros(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
-boton1.place(x=100, y=500)
+boton1.place(x=100, y=200)
 
 boton2 = tk.Button(ventana, text ='Ficha personal', command=lambda:Ficha_Personal(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
-boton2.place(x=450, y=500)
+boton2.place(x=450, y=200)
 
 boton3 = tk.Button(ventana, text = 'Animación', command=lambda:Pelotas(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
-boton3.place(x=800, y=500)
+boton3.place(x=800, y=200)
 
-boton4 = tk.Button(ventana, text = 'Cerrar', command=lambda:cerrar_ventana(), bg="red", width=5, height=1,font=("Arial", 10, "bold"))
-boton4.place(x=490, y=560)
+boton4 = tk.Button(ventana, text = 'Cerrar', command=lambda:cerrar_ventana(), bg="red", fg="white", width=5, height=1,font=("Arial", 10, "bold"))
+boton4.place(x=490, y=260)
 
 def cerrar_ventana():
     print("Cerrando ventana")
