@@ -69,6 +69,7 @@ def Numeros():
                 
             valor = int(valor_texto)
             
+            #Caso del cero
             if valor == 0:
                 resultado_pares.insert(tk.END, "Infinitos pares: (0, x)")
                 return
