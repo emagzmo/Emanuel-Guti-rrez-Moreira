@@ -152,7 +152,7 @@ def Pelotas():
     label_pelotas.pack(pady=20)
     # Regulador de Velocidad
     velocidad_var = tk.DoubleVar(value=1.0)
-    tk.Scale(ventana_pelotas, from_=0.1, to=3.0, resolution=0.1, 
+    tk.Scale(ventana_pelotas, from_=0.1, to=10.0, resolution=0.1, 
              orient=tk.HORIZONTAL, label="Velocidad de Simulación",
              variable=velocidad_var, length=300).pack(pady=5)
 
