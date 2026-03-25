@@ -3,6 +3,7 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 import math
 import pygame
+
 ventana_sec = False
 def al_cerrar(instancia_a_cerrar):
     global ventana_sec
@@ -26,10 +27,12 @@ def Numeros():
     btn_cerrar.place(x=360, y=400)
 
     tk.Label(ventana_numeros, text="Porfavor, ingrese un numero entero", font=("Arial", 20, "bold"), fg="black", bg="pink").pack(pady=20)
-
+    
+    #Ingresar numeros
     n_entero = tk.Entry(ventana_numeros)
     n_entero.pack(pady=5)
 
+    #Mostrar resultados
     resultado_pares = tk.Text(ventana_numeros, height=7, width=40)
     resultado_pares.pack(pady=10)
     
@@ -97,7 +100,7 @@ def Ficha_Personal():
     btn_cerrar = tk.Button(ventana_ficha, text="Regresar", command=lambda: al_cerrar(ventana_ficha), bg="red", fg="white", font=("Arial", 10, "bold"))
     btn_cerrar.place(x=600, y=500)
     
-
+    #Informacion personal
     label_ficha = tk.Label(ventana_ficha, text="Ficha personal del programador", font=("Arial", 20, "bold"), fg="black", bg="pink")
     label_ficha.pack(pady=10)
     
@@ -108,7 +111,7 @@ def Ficha_Personal():
     label_musica = tk.Label(ventana_ficha, text= "Interprete Favorito: Barrington Levy\nGenero musical: Reggae y Dancehall\n",justify= "left", font=("Arial", 10, "bold"))
     label_musica.place(x=40, y=330)
 
-
+    #Fotos
     foto_home = tk.PhotoImage(file="Departamento.png")
     foto_peq = foto_home.subsample(5, 5)
     label_foto_h = tk.Label(ventana_ficha, image=foto_peq)
@@ -127,6 +130,7 @@ def Ficha_Personal():
     label_foto_B_L.image = foto_peq3
     label_foto_B_L.place(x=300, y=300)
 
+    #Música
     pygame.mixer.init()
     cancion = pygame.mixer.Sound("Murderer.mp3")
 
@@ -148,12 +152,12 @@ def Pelotas():
     ventana_pelotas.geometry("800x600")
     ventana_pelotas.resizable(width=False, height=False)
 
-    label_pelotas = tk.Label(ventana_pelotas, text="Pelotas que rebotan contra todo", font=("Arial", 20, "bold"), fg="black", bg="pink")
+    label_pelotas = tk.Label(ventana_pelotas, text="Pelotas que rebotan", font=("Arial", 20, "bold"), fg="black", bg="pink")
     label_pelotas.pack(pady=20)
     # Regulador de Velocidad
     velocidad_var = tk.DoubleVar(value=1.0)
     tk.Scale(ventana_pelotas, from_=0.1, to=10.0, resolution=0.1, 
-             orient=tk.HORIZONTAL, label="Velocidad de Simulación",
+             orient=tk.HORIZONTAL, label="Velocidad de Animación",
              variable=velocidad_var, length=300).pack(pady=5)
 
     # Canvas
@@ -245,19 +249,19 @@ ventana.title('Tarea GUI')
 ventana.geometry("1100x400")
 ventana.resizable(width=False, height=False)
 
-label = tk.Label(ventana, text= 'HOLA!, ESCOJA QUE QUIERE HACER: ', font=("Arial",20, "bold"), fg="black", bg="pink")
+label = tk.Label(ventana, text= '¡BIENVENIDO!, SELECCIONE UNA VENTANA', font=("Arial",20, "bold"), fg="black", bg="pink")
 label.pack(pady=20)
 
 canva1 = tk.Canvas(ventana, bg="light blue", width=2100, height=2000)
 canva1.pack()
 #Botones ventna principal
-boton1 = tk.Button(ventana, text ='Pares ordenados', command=lambda:Numeros(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
+boton1 = tk.Button(ventana, text ='Analisis de numeros', command=lambda:Numeros(), bg="white", width=16, height=1, font=("Arial", 10, "bold"))
 boton1.place(x=100, y=200)
 
-boton2 = tk.Button(ventana, text ='Ficha personal', command=lambda:Ficha_Personal(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
+boton2 = tk.Button(ventana, text ='Ficha personal', command=lambda:Ficha_Personal(), bg="white", width=16, height=1, font=("Arial", 10, "bold"))
 boton2.place(x=450, y=200)
 
-boton3 = tk.Button(ventana, text = 'Animación', command=lambda:Pelotas(), bg="white", width=15, height=1, font=("Arial", 10, "bold"))
+boton3 = tk.Button(ventana, text = 'Animación', command=lambda:Pelotas(), bg="white", width=16, height=1, font=("Arial", 10, "bold"))
 boton3.place(x=800, y=200)
 
 boton4 = tk.Button(ventana, text = 'Cerrar', command=lambda:cerrar_ventana(), bg="red", fg="white", width=5, height=1,font=("Arial", 10, "bold"))
