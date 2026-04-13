@@ -63,6 +63,7 @@ def Numeros():
             resultado_pares.delete('1.0', tk.END)
             valor_texto = n_entero.get().strip()
             
+            #Cuando esta vacio vacio
             if not valor_texto:
                 messagebox.showwarning("Atención", "El campo está vacío.")
                 return
