@@ -43,7 +43,7 @@ def Numeros():
         num_abs = abs(n)
         pareja = num_abs // i
         
-        # CASO BASE: Si el divisor supera a la pareja, detenemos para no repetir invertidos
+        # Si el divisor supera a la pareja, detenemos para no repetir invertidos
         if i > pareja:
             return acumulador
         
@@ -169,7 +169,7 @@ def Pelotas():
 
     # Lista de pelotas idénticas
     bolas = [
-        {'x': 200, 'y': 200, 'r': 30, 'vx': 4, 'vy': 2, 'color': '#ff5555', 'm': 30},
+        {'x': 200, 'y': 200, 'r': 30, 'vx': 4, 'vy': 2, 'color': '#ff5555', 'm': 100},
         {'x': 550, 'y': 200, 'r': 30, 'vx': -4, 'vy': -2, 'color': '#5555ff', 'm': 30}
     ]
 
@@ -276,4 +276,3 @@ def cerrar_ventana():
 
 
 ventana.mainloop()
-
