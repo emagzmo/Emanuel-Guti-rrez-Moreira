@@ -167,12 +167,12 @@ def Pelotas():
                        bg="#fdfdfd", highlightthickness=2, highlightbackground="purple")
     canvas.pack(pady=5)
 
-    # Lista de pelotas idénticas
+    #Caracteristicas Pelotas 
     bolas = [
-        {'x': 200, 'y': 200, 'r': 30, 'vx': 4, 'vy': 2, 'color': '#ff5555', 'm': 100},
+        {'x': 200, 'y': 200, 'r': 30, 'vx': 4, 'vy': 2, 'color': '#ff5555', 'm': 30},
         {'x': 550, 'y': 200, 'r': 30, 'vx': -4, 'vy': -2, 'color': '#5555ff', 'm': 30}
     ]
-
+    #Colision y velocidad
     def resolver_colision(b1, b2):
         dx = b2['x'] - b1['x']
         dy = b2['y'] - b1['y']
@@ -184,7 +184,7 @@ def Pelotas():
             vel_normal = v_rel_x * nx + v_rel_y * ny
 
             if vel_normal > 0: return
-
+            #Calcular rebote
             impulso = (2 * vel_normal) / (b1['m'] + b2['m'])
             b1['vx'] -= impulso * b2['m'] * nx
             b1['vy'] -= impulso * b2['m'] * ny
@@ -200,7 +200,7 @@ def Pelotas():
 
     # --- FUNCIÓN RECURSIVA PARA PROCESAR LAS PELOTAS ---
     def procesar_pelotas_recursivo(indice):
-        # Caso base: Si el índice llega al tamaño de la lista, terminamos la recursión
+        # Si el índice llega al tamaño de la lista, se termina la recursión
         if indice >= len(bolas):
             return
 
@@ -227,15 +227,11 @@ def Pelotas():
 
     def animar():
         if not ventana_sec: return 
-        
         canvas.delete("pelota")
-        
         # Primero resolvemos la colisión entre las dos (Lógica física)
         resolver_colision(bolas[0], bolas[1])
-
-        # Luego procesamos el movimiento y dibujo usando RECURSIVIDAD
+        # Luego procesamos el movimiento y dibujo usando recursividad
         procesar_pelotas_recursivo(0)
-
         ventana_pelotas.after(16, animar)
 
     # Botón de cierre
